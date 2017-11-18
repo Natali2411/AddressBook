@@ -26,17 +26,17 @@ class AddressBookApp:
         # Open group page
         self.wd.find_element_by_xpath("//div/div[3]/ul/li[3]/a").click()
 
-    def create_group(self, name, header, footer):
+    def create_group(self, group):
         wd = self.wd
         # Initialize group creation
         wd.find_element_by_name("new").click()
         # Fill group form
         wd.find_element_by_name("group_name").clear()
-        wd.find_element_by_name("group_name").send_keys(name)
+        wd.find_element_by_name("group_name").send_keys(group.name)
         wd.find_element_by_name("group_header").clear()
-        wd.find_element_by_name("group_header").send_keys(header)
+        wd.find_element_by_name("group_header").send_keys(group.header)
         wd.find_element_by_name("group_footer").clear()
-        wd.find_element_by_name("group_footer").send_keys(footer)
+        wd.find_element_by_name("group_footer").send_keys(group.footer)
         # Submit group creation
         button = self.wait.until(EC.element_to_be_clickable((By.NAME, "submit")))
         button.click()

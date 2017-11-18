@@ -1,6 +1,6 @@
 import random
 
-def test_delete_group(app, login_admin):
+def test_delete_group(app, login_admin, db):
     index = random.randrange(app.count_groups())
     app.open_group_page()
     c1 = app.count_groups()
