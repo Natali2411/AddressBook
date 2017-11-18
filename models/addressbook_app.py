@@ -1,7 +1,8 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-
+from pages.login_page import LoginPage
+from pages.internal_page import InternalPage
 
 class AddressBookApp:
     def __init__(self, driver, base_url):
@@ -10,17 +11,19 @@ class AddressBookApp:
         self.wd.get(base_url)
         self.wait = WebDriverWait(driver, 5)
         self.wd.maximize_window()
+        self.login_page = LoginPage(driver, base_url)
+        self.internal_page = InternalPage(driver, base_url)
 
     def login(self, username, password):
         wd = self.wd
-        wd.find_element_by_name("user").clear()
-        wd.find_element_by_name("user").send_keys(username)
-        wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys(password)
-        wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
+        self.login_page.username_field.clear()
+        self.login_page.username_field.send_keys(username)
+        self.login_page.password_field.clear()
+        self.login_page.password_field.send_keys(password)
+        self.login_page.submit_button("//form[@id='LoginForm']/input[3]").click()
 
     def logout(self):
-        self.wd.find_element_by_xpath("//div/div[1]/form/a").click()
+        self.internal_page.logout_button.click()
 
     def open_group_page(self):
         # Open group page
