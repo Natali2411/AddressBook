@@ -2,7 +2,7 @@ import pymysql.cursors
 from models.group import Group
 
 # Connect to the database
-connection = pymysql.connect(host='192.168.0.195',
+connection = pymysql.connect(host='localhost',
                              user='root',
                              password='',
                              db='test',
@@ -12,13 +12,15 @@ connection = pymysql.connect(host='192.168.0.195',
 try:
     with connection.cursor() as cursor:
         # Read a single record
-        sql = "SELECT `group_name`, 'group_header', 'group_footer', 'group_id' FROM `group_list`"
+        sql = "SELECT group_name, group_header, group_footer, group_id FROM `group_list`"
         cursor.execute(sql)
         result = cursor.fetchall()
-        groops = []
+        print(result)
+        '''
+        groups = []
         for g in result:
-            groops.append(Group(name=g['group_name'], header=g['group_header'], footer=g['group_footer']))
-        print(groops)
+            groups.append(Group(name=g['group_name'], header=g['group_header'], footer=g['group_footer']))
+            '''
         connection.commit()
 finally:
     connection.close()

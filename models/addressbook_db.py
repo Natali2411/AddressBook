@@ -8,7 +8,7 @@ class AddressBookDB:
     def get_groups(self):
         with self.connection.cursor() as cursor:
             # Read a single record
-            sql = "SELECT `group_name`, 'group_header', 'group_footer', 'group_id' FROM `group_list` order by 'group_id' desc"
+            sql = "SELECT group_name, group_header, group_footer, group_id FROM `group_list` order by 'group_id' desc"
             cursor.execute(sql)
             groups = []
             for g in cursor:

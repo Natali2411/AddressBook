@@ -20,7 +20,7 @@ class AddressBookApp:
         self.login_page.username_field.send_keys(username)
         self.login_page.password_field.clear()
         self.login_page.password_field.send_keys(password)
-        self.login_page.submit_button("//form[@id='LoginForm']/input[3]").click()
+        self.login_page.submit_button.click()
 
     def logout(self):
         self.internal_page.logout_button.click()

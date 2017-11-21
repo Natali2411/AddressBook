@@ -7,14 +7,14 @@ from models.group import Group
 @pytest.fixture(scope="session")
 def app():
     driver = webdriver.Chrome()
-    base_url = "http://192.168.0.195/addressbook/"
+    base_url = "http://localhost/addressbook/"
     app = AddressBookApp(driver, base_url)
     yield app
     app.quit()
 
 @pytest.fixture()
 def db():
-    config = {"host": '192.168.0.195', "user": 'root', "password": '', "db": 'test'}
+    config = {"host": 'localhost', "user": 'root', "password": '', "db": 'test'}
     db = AddressBookDB(**config)
     yield db
     db.close()
@@ -25,9 +25,7 @@ def login_admin(app):
     yield
     app.logout()
 
-groups_list = [Group(name="fsdh", header="ffdse", footer="fj"),
-         Group(name="jfhjhu", header="djfj"),
-         Group(name="fjfhj", footer="jghjdk")]
+groups_list = [Group(name="friend1", header="friend1", footer="friend1")]
 
 repr_list = [str(g) for g in groups_list]
 
