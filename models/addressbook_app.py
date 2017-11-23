@@ -50,8 +50,10 @@ class AddressBookApp:
 
     def delete_group_by_number(self, number):
         checkboxes = self.wd.find_elements_by_name("selected[]")
+        id = checkboxes[number].get_attribute("value")
         checkboxes[number].click()
         self.wd.find_element_by_name("delete").click()
+        return id
 
     def count_groups(self):
         self.open_group_page()

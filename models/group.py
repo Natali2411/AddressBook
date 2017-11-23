@@ -7,10 +7,10 @@ class Group:
 
 
     def __str__(self):
-        return  "Group: {}, {}, {}".format(self.name, self.header, self.footer)
+        return  "Group: {}, {}, {}, {}".format(self.id, self.name, self.header, self.footer)
 
     def __repr__(self):
-        return "Group: {}, {}, {}".format(self.name, self.header, self.footer)
+        return "Group: {}, {}, {}, {}".format(self.id, self.name, self.header, self.footer)
 
     def __eq__(self, other):
         return self.name == other.name and self.header == other.header and self.footer == other.footer

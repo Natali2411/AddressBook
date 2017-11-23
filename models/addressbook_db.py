@@ -15,6 +15,14 @@ class AddressBookDB:
                 groups.append(Group(id=g["group_id"], name=g['group_name'], header=g['group_header'], footer=g['group_footer']))
         self.connection.commit()
         return groups
+'''
+    def get_groups_id(self):
+        id_list = []
+        for t in self.get_groups():
+            if str(t).startswith("Group:"):
+                id_list.append(t[7])
+        return id_list
+        '''
 
     def close(self):
         self.connection.close()
