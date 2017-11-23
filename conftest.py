@@ -32,3 +32,9 @@ repr_list = [str(g) for g in groups_list]
 @pytest.fixture(params=groups_list, ids=repr_list)
 def group (request):
     return request.param
+
+@pytest.fixture()
+def fillDB(app, db):
+    db.import_groups()
+    yield True
+    db.clean_groups()

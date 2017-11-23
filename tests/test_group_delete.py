@@ -9,9 +9,8 @@ def test_delete_group(app, login_admin, db):
     assert "Group has been removed." in app.wd.find_element_by_id("content").text
     app.return_to_group_page()
     c2 = app.count_groups()
-    # TODO: Verification that group removed
+    # TODO: Verification that group removed via count of groups
     assert c1 != c2
-
+    # TODO: Verification that group removed via comparing deleted id with id in DB
     for i in db.get_groups_id():
-        print(i)
-    #assert del_id in db.get_groups()["group_id"]
+        assert i != del_id
