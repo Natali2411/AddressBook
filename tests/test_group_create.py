@@ -15,3 +15,4 @@ def test_group_create(app, login_admin, group, db, fillDB):
     print(new_list[-1])
     assert group == new_list[-1]
 
+

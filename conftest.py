@@ -33,6 +33,7 @@ repr_list = [str(g) for g in groups_list]
 def group (request):
     return request.param
 
+#check
 @pytest.fixture()
 def fillDB(app, db):
     db.import_groups()
