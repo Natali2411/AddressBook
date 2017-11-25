@@ -1,5 +1,6 @@
 certifi==2017.11.5
 chardet==3.0.4
+colorama==0.3.9
 glob2==0.6
 idna==2.6
 Mako==1.0.7
@@ -19,3 +20,4 @@ requests==2.18.4
 selenium==3.7.0
 six==1.11.0
 urllib3==1.22
+xlrd==1.1.0
