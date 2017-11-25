@@ -1,7 +1,7 @@
 import pytest
 from models.group import Group
 
-def test_group_create(app, login_admin, group, db, fillDB):
+def test_group_create(app, login_admin, group, db):
     old_list = db.get_groups()
     app.open_group_page()
     app.create_group(group)

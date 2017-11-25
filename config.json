@@ -1,0 +1,15 @@
+{
+  "web":
+  {
+    "base_url": "http://localhost/addressbook/",
+    "user": "admin",
+    "password": "secret"
+  },
+  "db":
+  {
+    "host": "localhost",
+    "user": "root",
+    "password": "",
+    "db": "test"
+  }
+}
